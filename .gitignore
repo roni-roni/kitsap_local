@@ -12,7 +12,6 @@ build/
 .idea/
 .DS_Store
 coverage/
-README.md
 # Keep pubspec.lock committed: this is an app, not a library.
 
 # ---------------------------------------------------------------------------
