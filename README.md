@@ -6,7 +6,7 @@ running project for a ten-week Flutter and Dart course.
 Six tabs: **Bus**, **Ferry**, **Government**, **Parks**, **Events**, **Help**
 (volunteering). Later: favorites, sign-in, alerts, and a Jobs board.
 
-> This is an **unofficial** community project. It is not affiliated with Kitsap
+> This is an **unofficial** community project, started by Kyle Anderson. It is not affiliated with Kitsap
 > County, any city, Kitsap Transit, or Washington State Ferries.
 
 **Start here:** [`docs/00-course-map.md`](docs/00-course-map.md)
