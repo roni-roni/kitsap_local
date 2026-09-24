@@ -1,0 +1,92 @@
+{
+  "milestones": [
+    "Class 1", "Class 2", "Class 3", "Class 4", "Class 5",
+    "Class 6", "Class 7", "Class 8", "Class 9", "Class 10", "Later"
+  ],
+  "labels": [
+    { "name": "tab:bus", "color": "1D76DB", "description": "Bus tab" },
+    { "name": "tab:ferry", "color": "0E8A16", "description": "Ferry tab" },
+    { "name": "tab:government", "color": "5319E7", "description": "Government tab" },
+    { "name": "tab:parks", "color": "2E7D32", "description": "Parks tab" },
+    { "name": "tab:events", "color": "E99695", "description": "Events tab" },
+    { "name": "tab:help", "color": "F9D0C4", "description": "Help (volunteer) tab" },
+    { "name": "tab:jobs", "color": "C5DEF5", "description": "Jobs tab (future)" },
+    { "name": "type:learning", "color": "FBCA04", "description": "A concept students must learn" },
+    { "name": "type:feature", "color": "84B6EB", "description": "User-facing feature" },
+    { "name": "type:data", "color": "BFD4F2", "description": "Data sourcing, scripts, curation" },
+    { "name": "type:release", "color": "B60205", "description": "Play Console, signing, submission" },
+    { "name": "type:infra", "color": "D4C5F9", "description": "CI, tooling, backend, keys" },
+    { "name": "type:docs", "color": "0075CA", "description": "Documentation" },
+    { "name": "blocked:external", "color": "000000", "description": "Waiting on an outside party" }
+  ],
+  "issues": [
+    { "title": "Toolchain: install Flutter, Android SDK, VS Code extensions; `flutter doctor` is green", "milestone": "Class 1", "labels": ["type:learning", "type:infra"], "body": "Follow docs/01-primer-vscode.md. Done when `flutter doctor` shows no errors for Android toolchain and VS Code." },
+    { "title": "Generate platform folders with `flutter create` and pick the permanent application ID", "milestone": "Class 1", "labels": ["type:infra", "type:release"], "body": "See README Quick start. The application ID cannot change after the first Play upload." },
+    { "title": "Run the six-tab shell on a phone or emulator; explain each file in lib/", "milestone": "Class 1", "labels": ["type:learning"], "body": "Hot reload demo. Trace main.dart -> app.dart -> home_shell.dart." },
+    { "title": "Seed this backlog and protect `main` (PR + passing checks)", "milestone": "Class 1", "labels": ["type:infra", "type:docs"], "body": "Run tools/backlog/seed_issues.sh. See docs/02-primer-github.md." },
+
+    { "title": "Model: Route (fromJson, toJson, tests)", "milestone": "Class 2", "labels": ["tab:bus", "type:learning"], "body": "Fields follow data/generated/routes.json. Handle nullable color fields." },
+    { "title": "Model: Stop", "milestone": "Class 2", "labels": ["tab:bus", "type:learning"], "body": "Parse from stops.json. Include the list of route ids." },
+    { "title": "Model: Vehicle (shape only; data arrives in Class 9)", "milestone": "Class 2", "labels": ["tab:bus", "type:learning"], "body": "id, lat, lon, routeId, heading, updated." },
+    { "title": "Model: FerryTerminal", "milestone": "Class 2", "labels": ["tab:ferry", "type:learning"], "body": "Id, name, lat/lon, plus the routes it serves." },
+    { "title": "Model: Park (with owner type and entry requirement enum)", "milestone": "Class 2", "labels": ["tab:parks", "type:learning"], "body": "Owner: city, county, state, dnr, federal. Entry: free, discoverPass, other." },
+    { "title": "Model: Event (ISO 8601 with offset -> DateTime)", "milestone": "Class 2", "labels": ["tab:events", "type:learning"], "body": "Parse data/events.json. Test the offset handling." },
+    { "title": "Model: Official and Meeting", "milestone": "Class 2", "labels": ["tab:government", "type:learning"], "body": "Official matches tools/county_officials.py output." },
+    { "title": "Load bundled JSON with rootBundle and unit-test every parser", "milestone": "Class 2", "labels": ["type:learning"], "body": "Include a malformed-input test for each model." },
+
+    { "title": "Ferry screen on mock data: terminal list with next departure", "milestone": "Class 3", "labels": ["tab:ferry", "type:feature"], "body": "Use ListView.builder and a reusable TerminalTile widget." },
+    { "title": "Ferry detail screen: schedule for a route (mock)", "milestone": "Class 3", "labels": ["tab:ferry", "type:feature"], "body": "Practice Column/Row/Expanded and responsive padding." },
+    { "title": "Parks screen on mock data: list with owner and entry requirement", "milestone": "Class 3", "labels": ["tab:parks", "type:feature"], "body": "Cards, chips, and a badge for Discover Pass." },
+    { "title": "Test on a small phone size and large text scale (no overflow)", "milestone": "Class 3", "labels": ["type:learning"], "body": "Use the device inspector; fix any RenderFlex overflow." },
+    { "title": "Build first installable test version (signed AAB) and confirm it installs", "milestone": "Class 3", "labels": ["type:release"], "body": "The closed-test clock cannot start without a build. See docs/03-primer-play-store.md." },
+
+    { "title": "Help tab: load data/help.json, group by category, open link externally", "milestone": "Class 4", "labels": ["tab:help", "type:feature", "type:data"], "body": "Curate at least 15 real, verified organizations first." },
+    { "title": "Parks filters: owner and entry requirement (form controls)", "milestone": "Class 4", "labels": ["tab:parks", "type:feature"], "body": "FilterChip / SegmentedButton; keep filter state in one place." },
+    { "title": "Replace hand-rolled shell with go_router StatefulShellRoute", "milestone": "Class 4", "labels": ["type:learning"], "body": "Same behavior, plus named routes and deep links." },
+    { "title": "Theming pass: text theme, dark mode check, minimum tap targets", "milestone": "Class 4", "labels": ["type:learning"], "body": "Include a non-affiliation disclaimer on an About screen." },
+    { "title": "Upload first CLOSED-TEST build; testers opt in; record the day count starts", "milestone": "Class 4", "labels": ["type:release"], "body": "Need 12+ testers opted in continuously for 14 days. Recruit extra to absorb drop-outs." },
+
+    { "title": "Introduce Riverpod: providers for JSON loading (AsyncValue)", "milestone": "Class 5", "labels": ["type:learning"], "body": "Loading, data, and error states rendered from AsyncValue." },
+    { "title": "Repository layer: abstract interface + bundled-JSON implementation", "milestone": "Class 5", "labels": ["type:learning", "type:infra"], "body": "Screens depend on the interface, so Class 6 can swap in HTTP." },
+    { "title": "Run tools/county_officials.py against the real county page; commit the output", "milestone": "Class 5", "labels": ["tab:government", "type:data"], "body": "Check the site terms. Record the source URL and retrieval date." },
+    { "title": "Government tab: officials list and detail", "milestone": "Class 5", "labels": ["tab:government", "type:feature"], "body": "Phone and email links via url_launcher if time allows, otherwise Class 9." },
+    { "title": "Government tab: meeting schedule (county + each city), curated", "milestone": "Class 5", "labels": ["tab:government", "type:data"], "body": "Link to the official agenda page; do not copy agendas." },
+    { "title": "Events tab: curated list sorted by date, grouped by day", "milestone": "Class 5", "labels": ["tab:events", "type:feature", "type:data"], "body": "Hide past events." },
+
+    { "title": "WSDOT ferry: HTTP client with access code from --dart-define", "milestone": "Class 6", "labels": ["tab:ferry", "type:feature"], "body": "Use /cacheflushdate to decide when to refetch." },
+    { "title": "WSDOT ferry: alerts banner and outage state", "milestone": "Class 6", "labels": ["tab:ferry", "type:feature"], "body": "Show service disruption text on terminal and route screens." },
+    { "title": "Run tools/gtfs_to_json.py; validate counts, feed_info dates, ferry routes", "milestone": "Class 6", "labels": ["tab:bus", "type:data"], "body": "Attach gtfs_report.json to this issue. Decision: which agencies are in the feed, is it current?" },
+    { "title": "Bus tab: routes and stops on flutter_map with OSM tiles (attribution shown)", "milestone": "Class 6", "labels": ["tab:bus", "type:feature"], "body": "Respect the OSM tile usage policy; plan a commercial or self-hosted tile source for scale." },
+    { "title": "Parks: locations and boundaries from county/state datasets", "milestone": "Class 6", "labels": ["tab:parks", "type:data", "type:feature"], "body": "Simplify polygons before bundling. Record license and source per dataset." },
+    { "title": "Caching (last good data) and friendly error/offline states everywhere", "milestone": "Class 6", "labels": ["type:feature"], "body": "Never show a blank screen on failure." },
+    { "title": "Closed test: confirm 12+ testers opted in continuously for 14 days", "milestone": "Class 6", "labels": ["type:release"], "body": "Check the Play Console testers count before applying." },
+
+    { "title": "Privacy policy page hosted at a public URL", "milestone": "Class 7", "labels": ["type:release", "type:docs"], "body": "Required for the store listing and Data safety form." },
+    { "title": "Store listing: name, description, screenshots, icon, feature graphic", "milestone": "Class 7", "labels": ["type:release", "type:docs"], "body": "No county seals or logos; state that the app is unofficial." },
+    { "title": "Data safety form, content rating, target audience, ads declaration", "milestone": "Class 7", "labels": ["type:release"], "body": "Answers must match what the app actually does." },
+    { "title": "Apply for production access (answer tester-feedback questions)", "milestone": "Class 7", "labels": ["type:release"], "body": "Reviews usually take up to about 7 days." },
+    { "title": "Submit v1.0 to production", "milestone": "Class 7", "labels": ["type:release"], "body": "Use a staged rollout if the console offers it." },
+
+    { "title": "Add analytics + crash reporting; review Play vitals dashboard", "milestone": "Class 8", "labels": ["type:infra"], "body": "Update the Data safety form to match." },
+    { "title": "Firebase project + Google Sign-In (auth only, no features yet)", "milestone": "Class 8", "labels": ["type:infra", "type:feature"], "body": "Plan account deletion (Play requires it when accounts can be created)." },
+    { "title": "Triage v1 feedback into the backlog; pick v1.1 scope", "milestone": "Class 8", "labels": ["type:docs"], "body": "Prioritize by tester feedback and vitals." },
+    { "title": "Record outcome of Kitsap Transit BusTime outreach", "milestone": "Class 8", "labels": ["tab:bus", "blocked:external"], "body": "Approved, denied, or no reply? Decide the live-bus data source." },
+
+    { "title": "Cloud Function proxy: /vehicles from OneBusAway (or BusTime)", "milestone": "Class 9", "labels": ["tab:bus", "type:infra"], "body": "Key stored as a secret. Cache and slim the payload." },
+    { "title": "Bus tab: live vehicle markers, refresh, stale-data indicator", "milestone": "Class 9", "labels": ["tab:bus", "type:feature"], "body": "" },
+    { "title": "Favorites for Parks, Bus routes/stops, Ferry terminals (local first, synced when signed in)", "milestone": "Class 9", "labels": ["type:feature"], "body": "" },
+    { "title": "Maps hand-off: open the phone's default Maps at a location", "milestone": "Class 9", "labels": ["type:feature"], "body": "geo: URI on Android." },
+    { "title": "Add event to device calendar", "milestone": "Class 9", "labels": ["tab:events", "type:feature"], "body": "Check permissions and the Data safety implications." },
+    { "title": "Government: report-an-issue hand-off to SeeClickFix and county forms", "milestone": "Class 9", "labels": ["tab:government", "type:feature"], "body": "Deep link where possible; the app does not store reports." },
+    { "title": "Local data migration for favorites/settings (versioned)", "milestone": "Class 9", "labels": ["type:infra"], "body": "" },
+    { "title": "Integration tests for the main flows; enable CI (docs/templates/ci.yml)", "milestone": "Class 9", "labels": ["type:infra"], "body": "" },
+
+    { "title": "Ship v1.1: bump version, release notes, staged rollout, monitor vitals", "milestone": "Class 10", "labels": ["type:release"], "body": "Same checklist as Class 7." },
+    { "title": "Update Data safety form for sign-in, favorites sync, and calendar", "milestone": "Class 10", "labels": ["type:release"], "body": "" },
+
+    { "title": "User alerts for Parks/Bus/Ferry as banners (needs moderation + report/block per Play UGC policy)", "milestone": "Later", "labels": ["type:feature"], "body": "Design moderation BEFORE building." },
+    { "title": "Jobs tab: local business hiring board (posting, moderation, expiry)", "milestone": "Later", "labels": ["tab:jobs", "type:feature"], "body": "" },
+    { "title": "Volunteer/organization data: process for keeping listings fresh", "milestone": "Later", "labels": ["tab:help", "type:data"], "body": "" },
+    { "title": "iOS release (requires a Mac and an Apple Developer account)", "milestone": "Later", "labels": ["type:release"], "body": "" }
+  ]
+}

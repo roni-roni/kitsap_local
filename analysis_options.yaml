@@ -1,0 +1,12 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    # A few extra rules that teach good habits early.
+    - prefer_single_quotes
+    - require_trailing_commas
+    - avoid_print
+    - always_declare_return_types
+    - prefer_final_locals
+    - unawaited_futures
+    - directives_ordering

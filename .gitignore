@@ -1,0 +1,59 @@
+# ---------------------------------------------------------------------------
+# Flutter / Dart
+# ---------------------------------------------------------------------------
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+*.iml
+.idea/
+.DS_Store
+coverage/
+# Keep pubspec.lock committed: this is an app, not a library.
+
+# ---------------------------------------------------------------------------
+# SECRETS - keys must never reach GitHub
+# ---------------------------------------------------------------------------
+# --dart-define-from-file config (only the *.example.json is committed)
+env/*.json
+!env/*.example.json
+
+# Android release signing
+android/key.properties
+android/app/key.properties
+*.jks
+*.keystore
+*.pepk
+
+# Firebase / Google service config and credentials
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+firebase_options.dart
+service-account*.json
+*-adminsdk-*.json
+.firebase/
+firebase-debug.log*
+
+# Cloud Functions secrets and local emulator state
+functions/node_modules/
+functions/.env
+functions/.env.*
+!functions/.env.example
+functions/.secret.local
+functions/.runtimeconfig.json
+
+# Generic
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+
+# Python scripts in tools/
+tools/__pycache__/
+tools/.venv/
+tools/raw/
+*.pyc

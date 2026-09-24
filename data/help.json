@@ -1,0 +1,28 @@
+{
+  "_comment": "EXAMPLE ENTRIES ONLY. Replace with real, verified organizations in Class 4. See data/README.md for the schema.",
+  "version": 1,
+  "opportunities": [
+    {
+      "id": "example-food-bank",
+      "name": "Example Food Bank (replace me)",
+      "category": "food",
+      "city": "Bremerton",
+      "description": "Sorts and packs donated food for weekly distribution.",
+      "commitment": "One 3-hour shift per week; no long-term commitment required.",
+      "url": "https://example.org/volunteer",
+      "tags": ["weekday", "indoor", "group-friendly"],
+      "lastVerified": "2026-01-01"
+    },
+    {
+      "id": "example-trail-crew",
+      "name": "Example Trail Crew (replace me)",
+      "category": "environment",
+      "city": "Poulsbo",
+      "description": "Maintains local trails and removes invasive plants.",
+      "commitment": "Monthly Saturday work party, about 4 hours.",
+      "url": "https://example.org/trail-crew",
+      "tags": ["weekend", "outdoor"],
+      "lastVerified": "2026-01-01"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "_comment": "EXAMPLE ENTRY ONLY. Replace with real, verified events in Class 5. See data/README.md for the schema.",
+  "version": 1,
+  "events": [
+    {
+      "id": "example-farmers-market",
+      "title": "Example Farmers Market (replace me)",
+      "start": "2026-10-03T09:00:00-07:00",
+      "end": "2026-10-03T14:00:00-07:00",
+      "location": "Example Park",
+      "city": "Bainbridge Island",
+      "source": "City of Bainbridge Island",
+      "url": "https://example.org/market",
+      "description": "Weekly market.",
+      "recommended": false
+    }
+  ]
+}

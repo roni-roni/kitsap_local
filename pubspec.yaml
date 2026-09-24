@@ -1,0 +1,39 @@
+name: kitsap_local
+description: A mobile-first community app for Kitsap County, WA (bus, ferry, government, parks, events, volunteering). Built as a Flutter learning project.
+publish_to: none
+version: 0.1.0+1
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+
+# Dependencies are added class by class on purpose. Class 1 needs nothing but
+# Flutter itself. Uncomment/add each package in the class that introduces it
+# (see docs/classes/), using `flutter pub add <name>` so versions resolve to
+# whatever is current when you run it.
+#
+#   Class 2 : (none)  - dart:convert + rootBundle are enough
+#   Class 4 : go_router                     (declarative navigation)
+#   Class 5 : flutter_riverpod              (state management)
+#   Class 6 : http, flutter_map, latlong2   (APIs + maps)
+#           : shared_preferences            (simple cache) or path_provider
+#   Class 8 : firebase_core, firebase_auth, google_sign_in,
+#             firebase_analytics, firebase_crashlytics
+#   Class 9 : url_launcher (Maps hand-off), add_2_calendar (or similar),
+#             cloud_firestore (favorites sync), integration_test (SDK)
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    # Hand-curated JSON (Help, Events, ...). Lives in /data, not /assets,
+    # so non-developers can edit it and data scripts can write next to it.
+    - data/
+    # Output of tools/ scripts (GTFS -> JSON, county officials, ...).
+    - data/generated/
